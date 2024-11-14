@@ -1,26 +1,33 @@
-# Crear el modelo Creature en PHP
-
-creature_model_code = """
 <?php
-
 // app/models/Creature.php
 
 class Creature {
-    private $id;
+    private $idCreature;
     private $name;
-    private $imageUrl;
     private $description;
+    private $avatar;
+    private $attackPower;
+    private $lifeLevel;
+    private $weapon;
 
-    public function __construct($id = null, $name = "", $imageUrl = "", $description = "") {
-        $this->id = $id;
+    // Constructor
+
+    public function __construct($name = null, $description = null, $avatar = null, $attackPower = null, $lifeLevel = null, $weapon = null) {
         $this->name = $name;
-        $this->imageUrl = $imageUrl;
         $this->description = $description;
+        $this->avatar = $avatar;
+        $this->attackPower = $attackPower;
+        $this->lifeLevel = $lifeLevel;
+        $this->weapon = $weapon;
     }
 
-    // Getters y Setters
-    public function getId() {
-        return $this->id;
+    // Getters y setters
+    public function getIdCreature() {
+        return $this->idCreature;
+    }
+
+    public function setIdCreature($idCreature) {
+        $this->idCreature = $idCreature;
     }
 
     public function getName() {
@@ -31,14 +38,6 @@ class Creature {
         $this->name = $name;
     }
 
-    public function getImageUrl() {
-        return $this->imageUrl;
-    }
-
-    public function setImageUrl($imageUrl) {
-        $this->imageUrl = $imageUrl;
-    }
-
     public function getDescription() {
         return $this->description;
     }
@@ -47,25 +46,35 @@ class Creature {
         $this->description = $description;
     }
 
-    // CRUD Functions (Database interaction)
-    public static function getAll() {
-        // Obtener todas las criaturas de la BBDD
+    public function getAvatar() {
+        return $this->avatar;
     }
 
-    public function save() {
-        // Guardar o actualizar criatura en la BBDD
+    public function setAvatar($avatar) {
+        $this->avatar = $avatar;
     }
 
-    public static function delete($id) {
-        // Eliminar una criatura de la BBDD
+    public function getAttackPower() {
+        return $this->attackPower;
+    }
+
+    public function setAttackPower($attackPower) {
+        $this->attackPower = $attackPower;
+    }
+
+    public function getLifeLevel() {
+        return $this->lifeLevel;
+    }
+
+    public function setLifeLevel($lifeLevel) {
+        $this->lifeLevel = $lifeLevel;
+    }
+
+    public function getWeapon() {
+        return $this->weapon;
+    }
+
+    public function setWeapon($weapon) {
+        $this->weapon = $weapon;
     }
 }
-?>
-"""
-
-# Guardar el archivo del modelo
-model_path = os.path.join(extraction_path, "ArteanV3_Resuelto/app/models/Creature.php")
-with open(model_path, "w") as file:
-    file.write(creature_model_code)
-
-model_path  # Confirmar la ruta del archivo creado para el modelo de criatura en PHP.
